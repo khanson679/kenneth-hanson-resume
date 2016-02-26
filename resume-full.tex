@@ -1,0 +1,262 @@
+% arara: pdflatex
+%
+% Kenneth Hanson's Resume
+% Created: 6/4/2012
+% Based on Andrew McNabb's template (http://www.mcnabbs.org/andrew/linux/latexres/)
+
+\newcommand{\editdate}{5/10/2015}
+
+\documentclass[10pt,oneside]{article}
+
+\usepackage{tgpagella} % serif
+\usepackage{tgheros}   % sans
+\usepackage{tgcursor}  % mono
+\usepackage[T1]{fontenc}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+%\usepackage{url}
+\usepackage[colorlinks=true]{hyperref}
+
+% Page formatting
+\geometry{letterpaper,
+	includeheadfoot, % avoids conflict with fancyheader
+	hmargin=0.5in,
+	vmargin=0.75in,
+	headheight=0in,
+	headsep=0in,
+	footskip=0.3in
+}
+
+% Header/footer settings
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt} % remove header rule
+\fancyfoot[L]{Last Updated \editdate}
+
+% Other formatting
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+% Name and contact information
+\newcommand{\name}{Kenneth Hanson}
+%\newcommand{\addr}{1708 S. 42nd St., Rogers, AR 72758}
+\newcommand{\phone}{248-504-1897}
+\newcommand{\email}{khanson679@gmail.com}
+\newcommand{\website}{www.msu.edu/\textasciitilde hanson54}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% New commands and environments
+
+% This defines how the name looks
+\newcommand{\bigname}[1]{
+	\begin{center}\selectfont\Huge\scshape#1\end{center}
+}
+
+% A ressection is a main section (<H1>Section</H1>)
+\newenvironment{ressection}[1]{
+	\vspace{4pt}
+	{\selectfont\Large#1}
+	\begin{itemize}
+	\vspace{3pt}
+}{
+	\end{itemize}
+}
+
+% A resitem is a simple list element in a ressection (first level)
+\newcommand{\resitem}[1]{
+	\vspace{-4pt}
+	\item \begin{flushleft} #1 \end{flushleft}
+}
+
+% A ressubitem is a simple list element in anything but a ressection (second level)
+\newcommand{\ressubitem}[1]{
+	\vspace{-1pt}
+	\item \begin{flushleft} #1 \end{flushleft}
+}
+
+% A resbigitem is a complex list element for stuff like jobs and education:
+%  Arg 1: Name of company or university
+%  Arg 2: Location
+%  Arg 3: Title
+%  Arg 4: Date range
+\newcommand{\resbigitem}[4]{
+	\vspace{-5pt}
+	\item
+	\textbf{#1} \hfill #2 \\
+	\textit{#3} \hfill \textit{#4}
+}
+
+% This is a list that comes with a resbigitem
+\newenvironment{ressubsec}[4]{
+	\resbigitem{#1}{#2}{#3}{#4}
+	\vspace{-2pt}
+	\begin{itemize}
+}{
+	\end{itemize}
+}
+
+% This is a simple sublist
+\newenvironment{reslist}[1]{
+	\resitem{\textbf{#1}}
+	\vspace{-5pt}
+	\begin{itemize}
+}{
+	\end{itemize}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Now for the actual document:
+
+\begin{document}
+\pagenumbering{gobble}
+
+% Name with horizontal rule
+\bigname{\name}
+
+\vspace{-8pt} \rule{\textwidth}{1pt}
+
+\vspace{-1pt} {\small \hfill \url{\website}; \email}
+
+\vspace{8 pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Education}
+
+	\begin{ressubsec}{Michigan State University, East Lansing, MI}
+            {01/2011--05/2014}
+		    {B.A. in Linguistics (GPA 4.0 / 4.0)}
+            {}
+		\ressubitem{Additional Major in Japanese. Minor in Computer Science.}
+		\ressubitem{Coursework in Japanese linguistics, graduate level syntactic theory, Classical Japanese, compilers, and software design.}
+		\ressubitem{Independent study project using automated morphological analysis and Python and R scripts to analyze the syntax of Classical Japanese poetry. Abstract available on website.}
+		\ressubitem{Transferred 15 cr. from Eastern Michigan University (Ypsilanti, MI), and 38 AP credits.}
+	\end{ressubsec}
+    
+    \begin{ressubsec}{Linguistic Society of America 2013 Summer Linguistic Institute, Ann Arbor, MI}
+            {06/2013--07/2013}
+            {Non-degree Student}
+            {}
+            \ressubitem{Coursework in computational linguistics/psycholinguistics, Minimalist syntax, and language typology.}
+            \ressubitem{Attended workshops on diachronic syntax and syntactic variation.}
+	\end{ressubsec}
+\end{ressection}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Research Experience}
+    
+    \begin{ressubsec}{MSU Dept. of Linguistics and Languages}
+            {09/2012--05/2014}
+            {Research Assistant for Cristina Schmitt, PhD and Alan Munn, PhD}
+            {}
+        \ressubitem{Conducted a diachronic corpus study of bare noun phrases in English using CorpusSearch and Python scripts for automated coding, and R for statistical analysis. Abstract available on website.}
+        \ressubitem{Wrote a program to convert CorpusSearch coding output to spreadsheet form for data analysis.}
+        \ressubitem{Scheduled and ran participants for an artificial language learning experiment.}
+        \ressubitem{Partially funded by the MSU College of Arts and Letters Undergraduate Research Initiative (CAL-URI).}
+    \end{ressubsec}
+                    
+	\begin{ressubsec}{MSU Language and Interaction Research Lab (LAIR)}
+            {05/2012--06/2013}
+		    {Research Assistant for Joyce Chai, PhD}
+            {}
+		\ressubitem{Worked with lab members to design a natural language dialog system for a humanoid robot.}
+		\ressubitem{Developed basic program architecture, discourse function annotation scheme, dialog management and response generation (AI) modules, and debug interface. All programming in Python.}
+		\ressubitem{Managed group documentation. Coordinated integration of modules by other lab members.}
+		\ressubitem{Installed and configured Ubuntu Linux and software for development and robot operation.}
+		\ressubitem{Funded by the MSU Engineering Summer Undergraduate Research Experience program (EnSURE) for Summer 2012.}
+		
+	\end{ressubsec}
+\end{ressection}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Teaching Experience}
+	\begin{ressubsec}{MSU Dept. of Computer Science and Engineering}
+            {Spring 2012, Fall 2012, Spring 2013}
+        	{Teaching Assistant for CSE 232 (Introduction to Programming II)}
+        	{}
+		\ressubitem{Taught short lessons on C++ and data structures, and guided students (avg. 17 per semester) through assignments during weekly lab sessions.}
+		\ressubitem{Tutored students for and graded programming projects.}
+		\ressubitem{Produced web materials and handouts including C++ examples and guides on Linux and programming.}
+	\end{ressubsec}
+
+\end{ressection}
+
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Publications}
+	\resitem{J. Y. Chai, L. She, R. Fang, S. Ottarson, C. Littley, C. Liu, and K. Hanson. Collaborative Effort towards Common Ground in Situated Human Robot Dialogue. 2014 ACM/IEEE International Conference on Human-Robot Interaction (HRI). Bielefeld, Germany, March 3-6, 2014.}
+\end{ressection}
+
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Presentations}
+	\resitem{Hanson, Kenneth, Cristina Schmitt, and Alan Munn (2014). The loss of bare singular arguments and predicates in the history of English. The 16th Diachronic Generative Syntax (DiGS) Conference, Budapest, Hungary.}
+	
+	\resitem{Hanson, Kenneth, Cristina Schmitt, and Alan Munn (2014). The loss of bare singular noun phrases in the history of English. Great Lakes Expo for Experimental and Formal Undergraduate Linguistics (GLEEFUL), East Lansing, MI.}
+	
+	\resitem{Hanson, Kenneth (2014). Quantitative methods for the analysis of Classical Japanese poetry. Michigan State Undergraduate Linguistics Conference (MSULC), East Lansing, MI.}
+	
+	\resitem{Hanson, Kenneth (2014). Methods for tracking lexical classes in parsed historical corpora. Poster presented at the Michigan State Undergraduate Linguistics Conference (MSULC), East Lansing, MI.}
+	
+    \resitem{Hanson, Kenneth (2013). CorpusExtract: a tool for analyzing syntactically annotated corpora. Poster presented at the Michigan State Undergraduate Linguistics Conference (MSULC), East Lansing, MI.}
+    
+    \resitem{Hanson, Kenneth (2012). Playing a naming game with Darwin: towards human-robot dialog. Presentation of research in collaboration with MSU LAIR at the MSU Summer Undergraduate Research Forum (SURF), East Lansing, MI.}
+\end{ressection}
+
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Other Activities}
+	\begin{ressubsec}{JapaneseProfessor.com}{06/2011--Present}{Author and Webmaster}{}
+		\ressubitem{Created beginning Japanese curriculum including 33 lessons on grammar, vocabulary and expressions, writing, and culture.}
+	\end{ressubsec}
+	
+	\begin{ressubsec}{q Undergraduate Association for Linguistics at Michigan State}
+			{09/2011--05/2014}
+			{Vice President, Secretary, and Activities Director (02/2012--05/2014)}
+			{}
+		\ressubitem{Other positions held: advertising, tech support. Organized and ran activities at biweekly meetings. Produced workshop handouts and fliers for advertising. Rebuilt and maintained club website.}
+		\ressubitem{Produced programs and assisted with organization and running of annual undergraduate linguistics conferences MSULC and GLEEFUL. }
+	\end{ressubsec}
+\end{ressection}
+
+
+% % % % % % % % % % %
+\begin{ressection}{Awards and Honors}
+	\begin{reslist}{Funded Awards}
+		\ressubitem{Michigan State University Board of Trustees Scholarship Award \hfill 05/2014}
+		\ressubitem{Michigan State University College of Arts and Letters Outstanding Senior Achievement Award \hfill 05/2014}
+		\ressubitem{Mitsui USA Foundation USA/Community Scholarship for Youth For Understanding Summer \hfill 06--07/2009 \\ Japan Study Abroad Program}
+	\end{reslist}
+	
+	\begin{reslist}{Presentation Awards}
+		\ressubitem{Michigan State Undergraduate Linguistics Conference (MSULC) Award Winner \hfill 04/2014}
+	\end{reslist}
+	
+	\begin{reslist}{Honor Societies}
+		\ressubitem{Phi Beta Kappa \hfill 2014--Present}
+		\ressubitem{AAJT Japanese National Honor Society College Chapter \hfill 2014--Present}	
+	\end{reslist}
+\end{ressection}
+
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Skills and Additional Information}
+	\resitem{\textbf{Languages} -- English (native), Japanese (advanced, passed JLPT N2 in Dec. 2013).}
+    
+    \resitem{\textbf{Programming} -- Experienced: Python, C++. Familiar with: Java, R, wxWidgets, ANTLR3, SVN. Basic knowledge: Bash, x86, SPARC.}
+    
+    \resitem{\textbf{Misc. Computing} -- Experienced: Ubuntu Linux, CorpusSearch. Familiar with: \LaTeX{}, Wordpress, HTML/CSS.}
+    
+    \resitem{\textbf{Music} --  Piano (advanced), marimba (advanced), and some composition.}
+    
+    \resitem{\textbf{Volunteer} -- Michigan Japanese Quiz Bowl (03/2012--03/2014)}
+\end{ressection}
+
+\end{document}
