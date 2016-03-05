@@ -39,7 +39,7 @@
 % Other formatting
 
 \setlength{\parindent}{0pt}
-\setlength{\topsep}{0pt}
+%\setlength{\topsep}{0pt}
 
 \usepackage{enumitem}
 \setlist[itemize]{parsep=0pt}
@@ -62,6 +62,7 @@
 % This defines how the name looks
 \newcommand{\bigname}[1]{
 	\begin{center}\textsc{\Huge#1}\end{center}
+	\vspace{-8pt}
 }
 
 % A ressection is a main section (<H1>Section</H1>)
@@ -102,15 +103,16 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+	
 \pagenumbering{gobble}
 
 % Name with horizontal rule, followed by website and email
+
 \bigname{\name}
-\vspace{-8pt} \rule{\textwidth}{1pt}
 
-\vspace{-1pt} {\small \hfill \url{\website} | \href{mailto:\email}{\email}}
+\rule{\textwidth}{1pt}
 
-\vspace{8 pt}
+{\small \hfill \url{\website} | \href{mailto:\email}{\email}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
