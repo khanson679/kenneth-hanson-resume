@@ -10,7 +10,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{tgpagella} % serif
-\usepackage{tgheros}   % sans
+%\usepackage{tgheros}   % sans
 %\usepackage{tgcursor}  % mono
 
 \usepackage{geometry}
@@ -21,13 +21,14 @@
 \urlstyle{same} % don't use typewriter font
 
 % Page formatting
-\geometry{letterpaper,
+\geometry{
+	letterpaper,
 	includeheadfoot, % avoids conflict with fancyheader
-	hmargin=0.5in,
-	vmargin=0.75in,
-	headheight=0in,
-	headsep=0in,
-	footskip=0.3in
+	hmargin    = 0.5in,
+	vmargin    = 0.75in,
+	headheight = 0in,
+	headsep    = 0in,
+	footskip   = 0.3in
 }
 
 % Header/footer settings
@@ -36,11 +37,11 @@
 \fancyfoot[L]{Last Updated \editdate}
 
 % Other formatting
-\setlength{\parindent}{0in}
-\setlength{\parskip}{0in}
-\setlength{\itemsep}{0in}
-\setlength{\topsep}{0in}
-\setlength{\tabcolsep}{0in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\itemsep}{0pt}
+\setlength{\topsep}{0pt}
+\setlength{\tabcolsep}{0pt}
 
 % Name and contact information
 \newcommand{\name}{Kenneth Hanson}
@@ -55,13 +56,13 @@
 
 % This defines how the name looks
 \newcommand{\bigname}[1]{
-	\begin{center}\selectfont\Huge\scshape#1\end{center}
+	\begin{center}\textsc{\Huge#1}\end{center}
 }
 
 % A ressection is a main section (<H1>Section</H1>)
 \newenvironment{ressection}[1]{
 	\vspace{4pt}
-	{\selectfont\Large#1}
+	{\Large#1}
 	\begin{itemize}
 	\vspace{3pt}
 }{
