@@ -39,10 +39,7 @@
 % Other formatting
 
 \setlength{\parindent}{0pt}
-%\setlength{\parskip}{0pt}
-%\setlength{\itemsep}{0pt}
 \setlength{\topsep}{0pt}
-%\setlength{\tabcolsep}{0pt}
 
 \usepackage{enumitem}
 \setlist[itemize]{parsep=0pt}
@@ -69,25 +66,11 @@
 
 % A ressection is a main section (<H1>Section</H1>)
 \newenvironment{ressection}[1]{
-%	\vspace{4pt}
 	\paragraph{\Large#1}
 	\begin{itemize}
-%	\vspace{3pt}
 }{
 	\end{itemize}
 }
-
-% A resitem is a simple list element in a ressection (first level)
-%\newcommand{\resitem}[1]{
-%%	\vspace{-4pt}
-%	\item \begin{flushleft} #1 \end{flushleft}
-%}
-
-% A ressubitem is a simple list element in anything but a ressection (second level)
-%\newcommand{\ressubitem}[1]{
-%%	\vspace{-1pt}
-%	\item \begin{flushleft} #1 \end{flushleft}
-%}
 
 % A resbigitem is a complex list element for stuff like jobs and education:
 %  Arg 1: Name of company or university
@@ -95,7 +78,6 @@
 %  Arg 3: Title
 %  Arg 4: Date range
 \newcommand{\resbigitem}[4]{
-%	\vspace{-5pt}
 	\item
 	\textbf{#1} \hfill #2 \\
 	\textit{#3} \hfill \textit{#4}
@@ -104,7 +86,6 @@
 % This is a list that comes with a resbigitem
 \newenvironment{ressubsec}[4]{
 	\resbigitem{#1}{#2}{#3}{#4}
-%	\vspace{-2pt}
 	\begin{itemize}
 }{
 	\end{itemize}
@@ -113,7 +94,6 @@
 % This is a simple sublist
 \newenvironment{reslist}[1]{
 	\item{\textbf{#1}}
-%	\vspace{-5pt}
 	\begin{itemize}
 }{
 	\end{itemize}
