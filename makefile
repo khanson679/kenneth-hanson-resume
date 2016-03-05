@@ -1,16 +1,19 @@
-SRC_FILE = resume-full.tex
-OUT_FILE = resume-full.pdf
+TEX = resume-full.tex
+PDF = resume-full.pdf
+HTML = resume-full.html resume-full.css
 
+all: $(PDF) $(HTML)
 
-all: $(OUT_FILE)
+$(PDF): $(TEX)
+	arara $(TEX)
 
-$(OUT_FILE): $(SRC_FILE)
-	arara $(SRC_FILE)
+$(HTML): $(TEX)
+	htlatex $(TEX)
 
 .PHONY: clean
-clean:
-	rm *.aux *.log *.out
+cleanaux:
+	rm -f *.4ct *.4tc *.aux *.dvi *.idv *.lg *.log *.out *.tmp *.xref
 
 .PHONY: cleanall
-cleanall: clean
-	rm $(OUT_FILE)
+clean: cleanaux
+	rm -f $(PDF) $(HTML)
