@@ -79,10 +79,17 @@
 	\vspace{-4pt}
 }
 
-% A resbigitem is a complex list element for stuff like jobs and education:
-%  Arg 1: Name of company or university
+% A resbitem has a date range that is right-aligned
+%  Arg 1: Item
+%  Arg 2: Date range
+\newcommand{\resitem}[2]{
+	\item #1 \hfill #2
+}
+
+% A resbigitem includes fields for an institution and location
+%  Arg 1: Name of instution
 %  Arg 2: Location
-%  Arg 3: Title
+%  Arg 3: Role title
 %  Arg 4: Date range
 \newcommand{\resbigitem}[4]{
 	\item
@@ -93,7 +100,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-	
+
 \pagenumbering{gobble}
 
 % Name with horizontal rule, followed by website and email
@@ -107,6 +114,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \ressection{Education}
+
 \begin{itemize}
 	\resbigitem
 		{Michigan State University, East Lansing, MI}
@@ -134,6 +142,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \ressection{Research Experience}
+
 \begin{itemize}
 	\resbigitem
 		{MSU Dept. of Linguistics and Languages}
@@ -165,6 +174,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \ressection{Teaching Experience}
+
 \begin{itemize}
 	\resbigitem
 		{MSU Dept. of Computer Science and Engineering}
@@ -181,6 +191,7 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \ressection{Publications}
+
 \begin{itemize}
 	\item{J. Y. Chai, L. She, R. Fang, S. Ottarson, C. Littley, C. Liu, and K. Hanson. Collaborative Effort towards Common Ground in Situated Human Robot Dialogue. 2014 ACM/IEEE International Conference on Human-Robot Interaction (HRI). Bielefeld, Germany, March 3-6, 2014.}
 \end{itemize}
@@ -189,6 +200,7 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \ressection{Presentations}
+
 \begin{itemize}
 	\item{Hanson, Kenneth, Cristina Schmitt, and Alan Munn (2014). The loss of bare singular arguments and predicates in the history of English. The 16th Diachronic Generative Syntax (DiGS) Conference, Budapest, Hungary.}
 	
@@ -207,6 +219,7 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \ressection{Other Activities}
+
 \begin{itemize}
 	\resbigitem
 		{JapaneseProfessor.com}
@@ -234,20 +247,20 @@
 	
 	\ressubsection{Funded Awards}
 	\begin{itemize}
-		\item{Michigan State University Board of Trustees Scholarship Award \hfill 05/2014}
-		\item{Michigan State University College of Arts and Letters Outstanding Senior Achievement Award \hfill 05/2014}
-		\item{Mitsui USA Foundation USA/Community Scholarship for Youth For Understanding Summer \hfill 06--07/2009 \\ Japan Study Abroad Program}
+		\resitem{Michigan State University Board of Trustees Scholarship Award}{05/2014}
+		\resitem{Michigan State University College of Arts and Letters Outstanding Senior Achievement Award}{05/2014}
+		\resitem{Mitsui USA Foundation USA/Community Scholarship for Youth For Understanding Summer}{06--07/2009 \\ Japan Study Abroad Program}
 	\end{itemize}
 	
 	\ressubsection{Presentation Awards}
 	\begin{itemize}
-		\item{Michigan State Undergraduate Linguistics Conference (MSULC) Award Winner \hfill 04/2014}
+		\resitem{Michigan State Undergraduate Linguistics Conference (MSULC) Award Winner}{04/2014}
 	\end{itemize}
 	
 	\ressubsection{Honor Societies}
 	\begin{itemize}
-		\item{Phi Beta Kappa \hfill 2014--Present}
-		\item{AAJT Japanese National Honor Society College Chapter \hfill 2014--Present}	
+		\resitem{Phi Beta Kappa}{2014--Present}
+		\resitem{AAJT Japanese National Honor Society College Chapter}{2014--Present}
 	\end{itemize}
 
 
