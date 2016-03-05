@@ -45,7 +45,7 @@
 %\setlength{\tabcolsep}{0pt}
 
 \usepackage{enumitem}
-\setlist[itemize]{itemsep=0pt}
+\setlist[itemize]{parsep=0pt}
 
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,urlcolor=blue}
@@ -70,7 +70,7 @@
 % A ressection is a main section (<H1>Section</H1>)
 \newenvironment{ressection}[1]{
 %	\vspace{4pt}
-	{\Large#1}
+	\paragraph{\Large#1}
 	\begin{itemize}
 %	\vspace{3pt}
 }{
