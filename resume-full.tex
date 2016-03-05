@@ -8,15 +8,17 @@
 
 \documentclass[10pt,oneside]{article}
 
+\usepackage[T1]{fontenc}
 \usepackage{tgpagella} % serif
 \usepackage{tgheros}   % sans
-\usepackage{tgcursor}  % mono
-\usepackage[T1]{fontenc}
+%\usepackage{tgcursor}  % mono
 
 \usepackage{geometry}
 \usepackage{fancyhdr}
-%\usepackage{url}
-\usepackage[colorlinks=true]{hyperref}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\urlstyle{same} % don't use typewriter font
 
 % Page formatting
 \geometry{letterpaper,
@@ -43,7 +45,7 @@
 % Name and contact information
 \newcommand{\name}{Kenneth Hanson}
 %\newcommand{\addr}{1708 S. 42nd St., Rogers, AR 72758}
-\newcommand{\phone}{248-504-1897}
+%\newcommand{\phone}{248-504-1897}
 \newcommand{\email}{khanson679@gmail.com}
 \newcommand{\website}{www.msu.edu/\textasciitilde hanson54}
 
@@ -110,17 +112,14 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Now for the actual document:
-
 \begin{document}
 \pagenumbering{gobble}
 
-% Name with horizontal rule
+% Name with horizontal rule, followed by website and email
 \bigname{\name}
-
 \vspace{-8pt} \rule{\textwidth}{1pt}
 
-\vspace{-1pt} {\small \hfill \url{\website}; \email}
+\vspace{-1pt} {\small \hfill \url{\website} | \href{mailto:\email}{\email}}
 
 \vspace{8 pt}
 
