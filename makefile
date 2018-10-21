@@ -3,7 +3,7 @@ TEX := $(BASENAME).tex
 PDF := $(BASENAME).pdf
 HTML := $(BASENAME).html $(BASENAME).css
 
-all: $(PDF) $(HTML)
+all: $(PDF)
 
 $(PDF): $(TEX)
 	arara $(TEX)
