@@ -10,10 +10,11 @@ $(PDF): $(TEX)
 $(HTML): $(TEX)
 	htlatex $(TEX)
 
-.PHONY: clean
+.PHONY: clean cleanaux
+
+clean: cleanaux
+	rm -f $(PDF) $(HTML)
+
 cleanaux:
 	rm -f *.4ct *.4tc *.aux *.dvi *.idv *.lg *.log *.out *.tmp *.xref
 
-.PHONY: cleanall
-clean: cleanaux
-	rm -f $(PDF) $(HTML)
