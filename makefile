@@ -1,6 +1,7 @@
-TEX = resume-full.tex
-PDF = resume-full.pdf
-HTML = resume-full.html resume-full.css
+BASENAME := resume-full
+TEX := $(BASENAME).tex
+PDF := $(BASENAME).pdf
+HTML := $(BASENAME).html $(BASENAME).css
 
 all: $(PDF) $(HTML)
 
