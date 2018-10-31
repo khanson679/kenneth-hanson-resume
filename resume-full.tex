@@ -53,19 +53,17 @@
 
 % Name and contact information
 \newcommand{\name}{Kenneth Hanson}
-%\newcommand{\addr}{1708 S. 42nd St., Rogers, AR 72758}
+%\newcommand{\address}{1708 S 42nd St, Rogers, AR 72758}
 %\newcommand{\phone}{248-504-1897}
 \newcommand{\email}{khanson679@gmail.com}
-\newcommand{\website}{%
-	\href{https://www.msu.edu/\textasciitilde hanson54}%
-		 {www.msu.edu/\textasciitilde hanson54}%
-}
+\newcommand{\website}{www.msu.edu/\textasciitilde hanson54}
 
 % This defines how the name looks
-\newcommand{\bigname}[1]{
-	\begin{center}\textsc{\Huge#1}\end{center}
-	\vspace{-8pt}
-}
+\newcommand{\bigname}{%
+	{\centering\scshape\Huge \name \par}}
+
+\newcommand{\contactinfo}{%
+	{\raggedleft\small \url{\website} | \href{mailto:\email}{\email} \par}}
 
 %% attempted to make custom list, but can't inherit properties of built-in "itemize"
 %% so have to redefine everything, including customizations above
@@ -109,11 +107,11 @@
 
 % Name with horizontal rule, followed by website and email
 
-\bigname{\name}
+\bigname
 
 \rule{\textwidth}{1pt}
 
-{\small \hfill \website{} | \href{mailto:\email}{\email}}
+\contactinfo
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
