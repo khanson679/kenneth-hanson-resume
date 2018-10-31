@@ -41,7 +41,7 @@
 %\setlength{\topsep}{0pt}
 
 \usepackage{enumitem}
-\setlist[itemize]{parsep=0pt}
+\setlist[itemize]{parsep=0pt,leftmargin=15pt}
 
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,urlcolor=blue}
@@ -66,6 +66,13 @@
 	\begin{center}\textsc{\Huge#1}\end{center}
 	\vspace{-8pt}
 }
+
+%% attempted to make custom list, but can't inherit properties of built-in "itemize"
+%% so have to redefine everything, including customizations above
+%\newlist{reslist}{itemize}{2}
+%\setlist[reslist,1]{label=\textbullet,itemsep=6pt}
+%\setlist[reslist,2]{label=\textendash}
+
 
 % A ressection is a main section (<H1>Section</H1>)
 \newcommand{\ressection}[1]{
