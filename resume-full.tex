@@ -37,10 +37,11 @@
 % Other global formatting
 
 \setlength{\parindent}{0pt}
-%\setlength{\topsep}{0pt}
+
+\usepackage[sf]{titlesec}
 
 \usepackage{enumitem}
-\setlist[itemize]{parsep=0pt,leftmargin=15pt}
+\setlist[itemize]{parsep=0pt,leftmargin=15pt,label=\raisebox{0.4ex}{\tiny\textbullet}}
 
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,urlcolor=blue}
@@ -72,11 +73,11 @@
 }
 
 
-%% attempted to make custom list, but can't inherit properties of built-in "itemize"
-%% so have to redefine everything, including customizations above
-%\newlist{reslist}{itemize}{2}
-%\setlist[reslist,1]{label=\textbullet,itemsep=6pt}
-%\setlist[reslist,2]{label=\textendash}
+% list formatting for resume items
+\newlist{reslist}{itemize}{2}
+\setlist[reslist]{parsep=0pt}
+\setlist[reslist,1]{leftmargin=0pt,itemsep=6pt,label=}
+\setlist[reslist,2]{leftmargin=15pt,label=\raisebox{0.4ex}{\tiny\textbullet}}
 
 
 % section commands
@@ -100,14 +101,19 @@
 
 
 % \resbigitem -- item with institution, date, role
-%  Arg 1: Institution/employer/etc.
+%  Arg 1: Role
 %  Arg 2: Date
-%  Arg 3: Role
+%  Arg 3: Institution/employer/etc.
 %  Arg 4: Date range
 \newcommand{\resbigitem}[4]{
-	\item \textbf{#1} \hfill #2 \\
-		\textit{#3} \hfill \textit{#4}
+	\item \parbox[t]{0.8\textwidth}{\textbf{#1}} \hfill #2 \\
+		\parbox[t]{0.8\textwidth}{\textit{#3}} \hfill \textit{#4}
 }
+
+
+% list formatting for publications and presentations
+\newlist{publist}{description}{2}
+\setlist[publist]{parsep=0pt,font=\normalfont}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -117,148 +123,159 @@
 
 \ressection{Education}
 
-\begin{itemize}
-	\resbigitem{Michigan State University, East Lansing, MI}
+\begin{reslist}
+	\resbigitem{B.A., Linguistics}
 		{01/2011--05/2014}
-		{B.A. in Linguistics (GPA 4.0 / 4.0)}
+		{Michigan State University, East Lansing, MI}
 		{}
-	\begin{itemize}
-		\item{Additional Major in Japanese. Minor in Computer Science.}
+	\begin{reslist}
+		\item{Additional Major in Japanese. Minor in Computer Science. Cumulative GPA: 4.0.}
 		\item{Coursework in Japanese linguistics, graduate level syntactic theory, Classical Japanese, compilers, and software design.}
 		\item{Independent study project using automated morphological analysis and Python and R scripts to analyze the syntax of Classical Japanese poetry. Abstract available on website.}
 		\item{Transferred 15 cr. from Eastern Michigan University (Ypsilanti, MI), and 38 AP credits.}
-	\end{itemize}
+	\end{reslist}
 	
-	\resbigitem{Linguistic Society of America 2013 Summer Linguistic Institute, Ann Arbor, MI}
+	\resbigitem{2013 Summer Linguistic Institute}
 		{06/2013--07/2013}
-		{Non-degree Student}
+		{University of Michigan, Ann Arbor, MI}
 		{}
-	\begin{itemize}
+	\begin{reslist}
 		\item{Coursework in comp. linguistics, comp. psycholinguistics, Minimalist syntax, and language typology.}
 		\item{Attended workshops on diachronic syntax and syntactic variation.}
-	\end{itemize}
-\end{itemize}
+	\end{reslist}
+\end{reslist}
 
 
-\ressection{Research Experience}
+\ressection{Positions}
 
-\begin{itemize}
-	\resbigitem{MSU Dept. of Linguistics and Languages}
-	{09/2012--05/2014}
-	{Research Assistant for Cristina Schmitt, PhD and Alan Munn, PhD}
-	{}
-	\begin{itemize}
+\begin{reslist}
+	\resbigitem{Assistant English Teacher}
+		{08/2014-08/2018}
+		{Japan Exchange and Teaching (JET) Programme}
+		{}
+	\begin{reslist}
+		\item Taught students (25-40 per class) in grades 1--9 at two junior high schools and four elementary schools. Lessons primarily team-taught with each class's primary instructor.
+		\item Developed custom curriculum for grades 1--4. Designed activities to accompany curriculum for grades 5--9.
+		\item Designed flashcards, worksheets, presentations, printed game materials, and game software using LibreOffice, LaTeX, ConTeXt, Python, and Qt.
+	\end{reslist}
+
+	\resbigitem{Undergraduate Research Assistant}
+		{09/2012--05/2014}
+		{For Cristina Schmitt, PhD and Alan Munn, PhD, MSU Dept. of Linguistics and Languages}
+		{}
+	\begin{reslist}
 		\item{Conducted a diachronic corpus study of bare noun phrases in English using CorpusSearch and Python scripts for automated coding, and R for statistical analysis. Abstract available on website.}
 		\item{Wrote a program to convert CorpusSearch coding output to spreadsheet form for data analysis.}
 		\item{Scheduled and ran participants for an artificial language learning experiment.}
 		\item{Partially funded by the MSU College of Arts and Letters Undergraduate Research Initiative (CAL-URI).}
-	\end{itemize}
+	\end{reslist}
 	
-	\resbigitem{MSU Language and Interaction Research Lab (LAIR)}
-	{05/2012--06/2013}
-	{Research Assistant for Joyce Chai, PhD}
-	{}
-	\begin{itemize}
+	\resbigitem{Undergraduate Research Assistant}
+		{05/2012--06/2013}
+		{For Joyce Chai, PhD, MSU Language and Interaction Research Lab (LAIR)}
+		{}
+	\begin{reslist}
 		\item{Worked with lab members to design a natural language dialog system for a humanoid robot.}
 		\item{Developed basic program architecture, discourse function annotation scheme, dialog management and response generation (AI) modules, and debug interface. All programming in Python.}
 		\item{Managed group documentation. Coordinated integration of modules by other lab members.}
 		\item{Installed and configured Ubuntu Linux and software for development and robot operation.}
-		\item{Funded by the MSU Engineering Summer Undergraduate Research Experience program (EnSURE) for Summer 2012.}
-	\end{itemize}
-\end{itemize}
-
-
-\ressection{Teaching Experience}
-
-\begin{itemize}
-	\resbigitem{Japan Exchange and Teaching (JET) Programme}
-	{08/2014-08/2018}
-	{Assistant English Teacher}
-	{}
-	\begin{itemize}
-		\item Taught students (25-40 per class) in grades 1--9 at two junior high schools and four elementary schools. Lessons primarily team-taught with each class's primary instructor.
-		\item Developed custom curriculum for grades 1--4. Designed activities to accompany curriculum for grades 5--9.
-		\item Designed flashcards, worksheets, presentations, printed game materials, and game software using LibreOffice, LaTeX, ConTeXt, Python, and Qt.
-	\end{itemize}
+		\item{Funded by the MSU Engineering Summer Undergraduate Research Experience Program (EnSURE) for Summer 2012.}
+	\end{reslist}
 	
-	\resbigitem{MSU Dept. of Computer Science and Engineering}
-	{Sp. 2012, Fa. 2012, Sp. 2013}
-	{Teaching Assistant for CSE 232 (Introduction to Programming II)}
-	{}
+	\resbigitem{Undergraduate Teaching Assistant}
+		{01/2012-05/2013}
+		{For CSE 232 (Intro to Programming II), MSU Dept. of Computer Science and Engineering}
+		{}
 	\begin{itemize}
 		\item{Taught short lessons on C++ and data structures, and guided students (avg. 17 per semester) through assignments during weekly lab sessions.}
 		\item{Tutored students for and graded programming projects.}
 		\item{Produced web materials and handouts including C++ examples and guides on Linux and programming.}
 	\end{itemize}
-\end{itemize}
+\end{reslist}
 
 
 \ressection{Publications}
 
-\begin{itemize}
-	\item{J. Y. Chai, L. She, R. Fang, S. Ottarson, C. Littley, C. Liu, and K. Hanson. Collaborative Effort towards Common Ground in Situated Human Robot Dialogue. 2014 ACM/IEEE International Conference on Human-Robot Interaction (HRI). Bielefeld, Germany, March 3-6, 2014.}
-\end{itemize}
+\begin{publist}
+	\item[2014] {J. Y. Chai, L. She, R. Fang, S. Ottarson, C. Littley, C. Liu, and K. Hanson. Collaborative Effort towards Common Ground in Situated Human Robot Dialogue. 2014 ACM/IEEE International Conference on Human-Robot Interaction (HRI). Bielefeld, Germany.}
+\end{publist}
 
 
 \ressection{Presentations}
 
 \ressubsection{Refereed Conference Presentations}
-\begin{itemize}
-	\item{Hanson, Kenneth, Cristina Schmitt, and Alan Munn (2014). The loss of bare singular arguments and predicates in the history of English. The 16th Diachronic Generative Syntax (DiGS) Conference, Budapest, Hungary.}
-\end{itemize}
+\begin{publist}
+	\item[2014] {Hanson, Kenneth, Cristina Schmitt, and Alan Munn. The loss of bare singular arguments and predicates in the history of English. The 16th Diachronic Generative Syntax (DiGS) Conference, Budapest, Hungary.}
+\end{publist}
 
 \ressubsection{Refereed Undergraduate Conference Presentations}
-\begin{itemize}
-	\item{Hanson, Kenneth, Cristina Schmitt, and Alan Munn (2014). The loss of bare singular noun phrases in the history of English. Great Lakes Expo for Experimental and Formal Undergraduate Linguistics (GLEEFUL), East Lansing, MI.}
-\end{itemize}
+\begin{publist}
+	\item[2014] {Hanson, Kenneth, Cristina Schmitt, and Alan Munn. The loss of bare singular noun phrases in the history of English. Great Lakes Expo for Experimental and Formal Undergraduate Linguistics (GLEEFUL), East Lansing, MI.}
+\end{publist}
 
 \ressubsection{Other Undergraduate Presentations}
-\begin{itemize}
-	\item{Hanson, Kenneth (2014). Quantitative methods for the analysis of Classical Japanese poetry. Michigan State Undergraduate Linguistics Conference (MSULC), East Lansing, MI.}
+\begin{publist}
+	\item[2014] {Hanson, Kenneth. Quantitative methods for the analysis of Classical Japanese poetry. Michigan State Undergraduate Linguistics Conference (MSULC), East Lansing, MI.}
 	
-	\item{Hanson, Kenneth (2014). Methods for tracking lexical classes in parsed historical corpora. Poster presented at the Michigan State Undergraduate Linguistics Conference (MSULC), East Lansing, MI.}
+	\item[2014] {Hanson, Kenneth. Methods for tracking lexical classes in parsed historical corpora. Poster presented at the Michigan State Undergraduate Linguistics Conference (MSULC), East Lansing, MI.}
 	
-	\item{Hanson, Kenneth (2013). CorpusExtract: a tool for analyzing syntactically annotated corpora. Poster presented at the Michigan State Undergraduate Linguistics Conference (MSULC), East Lansing, MI.}
+	\item[2013] {Hanson, Kenneth. CorpusExtract: a tool for analyzing syntactically annotated corpora. Poster presented at the Michigan State Undergraduate Linguistics Conference (MSULC), East Lansing, MI.}
 	
-	\item{Hanson, Kenneth (2012). Playing a naming game with Darwin: towards human-robot dialog. Presentation of research in collaboration with MSU LAIR at the MSU Summer Undergraduate Research Forum (SURF), East Lansing, MI.}
-\end{itemize}
+	\item[2012] {Hanson, Kenneth. Playing a naming game with Darwin: towards human-robot dialog. Presentation of research in collaboration with MSU LAIR at the MSU Summer Undergraduate Research Forum (SURF), East Lansing, MI.}
+\end{publist}
 
 
 \ressection{Other Activities}
 
-\begin{itemize}
-	\resbigitem{JapaneseProfessor.com}
+\begin{reslist}
+	\resbigitem{Author and Webmaster}
 		{06/2011--Present}
-		{Author and Webmaster}
+		{JapaneseProfessor.com}
 		{}
-	\begin{itemize}
+	\begin{reslist}
 		\item{Created beginning Japanese curriculum including 33 lessons on grammar, vocabulary, writing, and culture.}
-	\end{itemize}
+	\end{reslist}
 	
-	\resbigitem{q Undergraduate Association for Linguistics at Michigan State}
-		{09/2011--05/2014}
-		{Vice President, Secretary, and Activities Director (02/2012--05/2014)}
+	\resbigitem{Vice President, Secretary, and Activities Director}
+		{02/2012--05/2014}
+		{q Undergraduate Association for Linguistics at Michigan State (qUALMS)}
 		{}
-	\begin{itemize}
+	\begin{reslist}
 		\item{Other positions held: advertising, tech support. Organized and ran activities at biweekly meetings. Produced workshop handouts and fliers for advertising. Rebuilt and maintained club website.}
 		\item{Produced programs for, helped organize and run undergraduate linguistics conferences MSULC and GLEEFUL. }
-	\end{itemize}
-\end{itemize}
+	\end{reslist}
+\end{reslist}
 
 
 \ressection{Awards and Honors}
 	
 \ressubsection{Funded Awards}
-\begin{itemize}
-	\resitem{Michigan State University Board of Trustees Scholarship Award}{05/2014}
-	\resitem{Michigan State University College of Arts and Letters Outstanding Senior Achievement Award}{05/2014}
-	\resitem{Mitsui USA Foundation Scholarship for YFU Summer Japan Study Abroad Program}{06--07/2009}
-\end{itemize}
+\begin{reslist}
+	\resbigitem{Board of Trustees Scholarship Award}
+		{05/2014}
+		{Michigan State University}
+		{}
+	\resbigitem{Outstanding Senior Achievement Award}
+		{05/2014}
+		{Michigan State University College of Arts and Letters }
+		{}
+	\resbigitem{Engineering Summer Undergraduate Research Experience Program (EnSURE)}
+		{06-08/2012}
+		{MSU College of Engineering}
+		{}
+	\resbigitem{Mitsui US/Community Scholarship for YFU Summer Japan Study Abroad Program}
+		{06--07/2009}
+		{Mitsui USA Foundation}
+		{}
+\end{reslist}
 
 \ressubsection{Other Awards}
-\begin{itemize}
-	\resitem{Michigan State Undergraduate Linguistics Conference (MSULC) Award Winner}{04/2014}
-\end{itemize}
+\begin{reslist}
+	\resbigitem{Presentation Award}
+		{04/2014}
+		{MSULC, Michigan State University, East Lansing, MI}
+		{}
+\end{reslist}
 
 %\ressubsection{Honor Societies}
 %\begin{itemize}
