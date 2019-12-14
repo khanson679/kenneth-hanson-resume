@@ -27,11 +27,12 @@
 }
 
 \usepackage{fancyhdr}
+\usepackage{lastpage}
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt} % remove header rule
 \fancyfoot{} % reset footer
 \fancyfoot[L]{Last Updated \editdate}
-
+\fancyfoot[C]{\thepage/\pageref*{LastPage}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Other global formatting
