@@ -9,6 +9,9 @@ all: $(PDF)
 
 $(PDF): $(TEX) $(BUILD) $(OUT)
 	pdflatex --output-directory=$(BUILD) $(TEX)
+	while grep 'Rerun to get ' $(BUILD)/*.log; \
+		do pdflatex --output-directory=$(BUILD) $(TEX); \
+	done
 	cp $(PDF) $(OUT)
 
 $(HTML): $(TEX) $(BUILD) $(OUT)
