@@ -160,3 +160,6 @@ TSWLatexianTemp*
 
 # build files
 build
+
+# output files
+out
