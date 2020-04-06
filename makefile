@@ -4,7 +4,7 @@ BUILD := build
 PDF := $(BUILD)/$(BASENAME).pdf
 HTML := $(BUILD)/$(BASENAME).html $(BASENAME).css
 
-all: $(PDF) $(HTML)
+all: $(PDF)
 
 $(PDF): $(TEX) $(BUILD)
 	pdflatex --output-directory=$(BUILD) $(TEX)
