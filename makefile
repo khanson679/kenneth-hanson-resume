@@ -3,26 +3,24 @@ TEX := $(BASENAME).tex
 BUILD := build
 OUT := out
 PDF := $(BUILD)/$(BASENAME).pdf
-HTML := $(BUILD)/$(BASENAME).html $(BASENAME).css
+HTML := $(OUT)/$(BASENAME).html
 
-all: $(PDF)
+all: $(PDF) $(HTML)
 
-$(PDF): $(TEX) $(BUILD) $(OUT)
+$(PDF): $(TEX) $(BUILD)
 	pdflatex --output-directory=$(BUILD) $(TEX)
 	while grep 'Rerun to get ' $(BUILD)/*.log; \
 		do pdflatex --output-directory=$(BUILD) $(TEX); \
 	done
+	mkdir -p $(OUT)
 	cp $(PDF) $(OUT)
 
-$(HTML): $(TEX) $(BUILD) $(OUT)
-	cd $(BUILD) && htlatex ../$(TEX) "" ""
-	cp $(HTML) $(OUT)
+$(HTML): $(TEX)
+	mkdir -p $(OUT)
+	pandoc $(TEX) -o $(HTML)
 
 $(BUILD):
 	mkdir -p $(BUILD)
-
-$(OUT):
-	mkdir -p $(OUT)
 
 .PHONY: clean cleanaux
 
