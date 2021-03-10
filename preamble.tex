@@ -1,0 +1,109 @@
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Page formatting
+
+\usepackage{geometry}
+\geometry{
+	letterpaper,
+	includeheadfoot, % avoids conflict with fancyheader
+	hmargin    = 0.5in,
+	vmargin    = 0.5in,
+	headheight = 0in,
+	headsep    = 0in,
+	footskip   = 0.3in
+}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt} % remove header rule
+\fancyhf{} % clear header and footer
+\fancyfoot[L]{Last Updated \editdate}
+\fancyfoot[C]{\thepage/\pageref*{LastPage}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Other global formatting
+
+\setlength{\parindent}{0pt}
+
+\usepackage[sf]{titlesec}
+
+\usepackage{enumitem}
+\setlist[itemize]{parsep=0pt,leftmargin=15pt,label=\raisebox{0.4ex}{\tiny\textbullet}}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\urlstyle{same} % don't use typewriter font
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% New commands and environments
+
+% Name and contact information
+\newcommand{\name}{Kenneth Hanson}
+\newcommand{\email}{khanson679@gmail.com}
+\newcommand{\website}{khanson679.github.io}
+
+
+% Layout for top heading
+\newcommand{\bigname}{%
+	{\centering\scshape\Huge \name \par}
+}
+\newcommand{\contactinfo}{%
+	{\raggedleft\small \href{http://\website}{\website} | \href{mailto:\email}{\email} \par}
+}
+\newcommand{\topheading}{%
+	\bigname
+	\rule{\textwidth}{1pt} \par
+	\contactinfo
+}
+
+
+% list formatting for resume items
+\newlist{reslist}{itemize}{2}
+\setlist[reslist]{parsep=0pt}
+\setlist[reslist,1]{leftmargin=0pt,itemsep=6pt,label=}
+%\setlist[reslist,2]{leftmargin=15pt,label=\raisebox{0.4ex}{\tiny\textbullet}}
+
+
+% section commands
+\newcommand{\ressection}[1]{
+	\vspace{-12pt}
+	\section*{#1}
+}
+\newcommand{\ressubsection}[1]{
+	\subsection*{#1}
+	\vspace{-4pt}
+}
+
+
+% \resitem -- item with associated date
+%   date is right aligned, item has simple text wrapping
+%   Arg 1: Item
+%   Arg 2: Date
+\newcommand{\resitem}[2]{
+	\item \parbox[t]{0.8\textwidth}{#1} \hfill #2
+}
+
+
+% \resbigitem -- item with institution, date, role
+%  Arg 1: Role
+%  Arg 2: Date
+%  Arg 3: Institution/employer/etc.
+%  Arg 4: Date range
+\newcommand{\resbigitem}[4]{
+	\item \parbox[t]{0.8\textwidth}{\textbf{#1}} \hfill #2 \\
+		\parbox[t]{0.8\textwidth}{\textit{#3}} \hfill \textit{#4}
+}
+
+
+% list formatting for publications and presentations
+\newlist{publist}{description}{2}
+\setlist[publist]{parsep=0pt,font=\normalfont}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
